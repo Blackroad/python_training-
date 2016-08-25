@@ -4,12 +4,14 @@ from contacts import Contacts
 
 import unittest
 
+
 def is_alert_present(wd):
     try:
         wd.switch_to_alert().text
         return True
     except:
         return False
+
 
 class test_add_contact(unittest.TestCase):
     def setUp(self):
@@ -22,7 +24,6 @@ class test_add_contact(unittest.TestCase):
         self.login(wd, username="admin", password="secret")
         self.add_new_contact(wd, Contacts(first_name="John", last_name="Smith", initials="JS", nickname="Johny",
                                           home_phone="38491123", email="js_smith@yandex.ru"))
-
         self.logout(wd)
 
     def test_add_empty_contact(self):
@@ -31,7 +32,6 @@ class test_add_contact(unittest.TestCase):
         self.login(wd, username="admin", password="secret")
         self.add_new_contact(wd, Contacts(first_name="", last_name="", initials="", nickname="",
                                           home_phone="", email=""))
-
         self.logout(wd)
 
     def logout(self, wd):

@@ -21,8 +21,7 @@ class test_add_contact(unittest.TestCase):
     def test_test_add_contact(self):
         wd = self.wd
         self.login(wd, username="admin", password="secret")
-        self.add_new_contact(wd, Contacts(first_name="John", last_name="Smith", initials="JS", nickname="Johny",
-                                  home_phone="38491123", email="js_smith@yandex.ru"))
+        self.add_new_contact(wd, Contacts(first_name='john',last_name='smith',initials='js',nickname='johy',home_phone='312314421',email='joht@yandex.net'))
         self.logout(wd)
 
     def test_add_empty_contact(self):

@@ -21,38 +21,38 @@ class test_add_contact(unittest.TestCase):
     def test_test_add_contact(self):
         wd = self.wd
         self.login(wd, username="admin", password="secret")
-        self.add_new_contact(wd, Contacts(first_name='john',last_name='smith',initials='js',nickname='johy',home_phone='312314421',email='joht@yandex.net'))
+        self.add_new_contact(wd,Contacts(first_name='John',last_name='Smyth',initials='JS',nickname='johny',home_phone='123123',email='jo@gmnail.com'))
         self.logout(wd)
 
     def test_add_empty_contact(self):
         wd = self.wd
         self.login(wd, username="admin", password="secret")
-        self.add_new_contact(wd, Contacts(first_name="", last_name="", initials="", nickname="",home_phone="", email=""))
+        self.add_new_contact(wd,Contacts(first_name='',last_name='',initials='',nickname='',home_phone='',email=''))
 
     def logout(self, wd):
         wd.find_element_by_link_text("Logout").click()
 
-    def add_new_contact(self, wd, first_name, last_name, initials, nickname, home_phone, email):
+    def add_new_contact(self, wd, Contacts):
         # Init new contact
         wd.find_element_by_link_text("add new").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(first_name)
+        wd.find_element_by_name("firstname").send_keys(Contacts.firstname)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(last_name)
+        wd.find_element_by_name("lastname").send_keys(Contacts.lastname)
         wd.find_element_by_name("middlename").click()
         wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys(initials)
+        wd.find_element_by_name("middlename").send_keys(Contacts.initials)
         wd.find_element_by_name("nickname").click()
         wd.find_element_by_name("nickname").clear()
-        wd.find_element_by_name("nickname").send_keys(nickname)
+        wd.find_element_by_name("nickname").send_keys(Contacts.nickname)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(home_phone)
+        wd.find_element_by_name("home").send_keys(Contacts.homephone)
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(email)
+        wd.find_element_by_name("email").send_keys(Contacts.email)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
     def login(self, wd, username, password):

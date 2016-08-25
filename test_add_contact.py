@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
+from contacts import Contacts
 
 import unittest
 
@@ -19,22 +20,15 @@ class test_add_contact(unittest.TestCase):
     
     def test_test_add_contact(self):
         wd = self.wd
-        # Login
         self.login(wd, username="admin", password="secret")
         self.add_new_contact(wd, Contacts(first_name="John", last_name="Smith", initials="JS", nickname="Johny",
-                                          home_phone="38491123", email="js_smith@yandex.ru"))
+                                  home_phone="38491123", email="js_smith@yandex.ru"))
         self.logout(wd)
 
     def test_add_empty_contact(self):
         wd = self.wd
-        # Login
         self.login(wd, username="admin", password="secret")
-        self.add_new_contact(wd, Contacts(first_name="", last_name="", initials="", nickname="",
-                                          home_phone="", email=""))
-=======
-        self.add_new_contact(wd, "John", "Smith", "JS", "Johny", "38491123", "js_smith@yandex.ru")
->>>>>>> parent of 1a06058... Добавлен класс Contacts и передача его объектов
-        self.logout(wd)
+        self.add_new_contact(wd, Contacts(first_name="", last_name="", initials="", nickname="",home_phone="", email=""))
 
     def logout(self, wd):
         wd.find_element_by_link_text("Logout").click()

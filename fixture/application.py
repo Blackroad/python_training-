@@ -4,6 +4,7 @@ from fixture.group import GroupHelper
 from fixture.contacts import ContactHelper
 
 
+
 class Application:
 
     def __init__(self):
@@ -16,6 +17,7 @@ class Application:
     def open_home_page(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
+
 
     def destroy(self):
         self.wd.quit()

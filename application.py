@@ -34,7 +34,7 @@ class Application:
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
         wd.find_element_by_name("group_footer").send_keys(Group.footer)
-        # submit group creation
+        # submit group
         wd.find_element_by_name("submit").click()
         self.return_to_groups_page()
 

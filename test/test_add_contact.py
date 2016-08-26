@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from selenium.webdriver.firefox.webdriver import WebDriver
-from contacts import Contacts
-
 import unittest
+
+from Model.contacts import Contacts
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 
 def is_alert_present(wd):

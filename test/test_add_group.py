@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import pytest
 from Model.group import Group
 from fixture.application import Application
@@ -23,4 +22,3 @@ def test_add_empty_group(app):
     app.group.create(Group(name="", header="", footer=""))
     app.session.logout()
 
-#stage1
